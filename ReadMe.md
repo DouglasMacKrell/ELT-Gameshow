@@ -29,13 +29,12 @@ If the user clicks the button, it will first load a screen asking if the same pl
         then return to the page asking players to select the number of active players.
 
 The INTRO/LANDING screen should have 3 things:
-* The LOGO (img)
-* A button that reads "START" (button)
-* static music player set to autoplay and visibility:none;
+    * The LOGO (img)
+    * A button that reads "START" (button)
+    * static music player set to autoplay and visibility:none;
 
 
-
-The gameplay screen should have [] things: 
+The GAMEPLAY screen should have [] things: 
 * A HEADER that lets us know which player is active
 * A picture of the ELT/BOD/Rando in question
 * Five (5) buttons
