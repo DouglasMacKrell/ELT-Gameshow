@@ -34,7 +34,7 @@
 }
 
 .player-select {
-    width: 25%;
+    width: 200px;
     height: 30px;
     justify-self: center;
     background-color: blue;
@@ -109,7 +109,6 @@
     height: 100%;
     transform-style: preserve-3d;
     transition: all 0.5s ease;
-    
 }
 
 .the-front {
@@ -127,6 +126,11 @@
 
 #card-back-logo {
     height: inherit;
+}
+
+#vip-pic {
+    width: inherit;
+    border-radius: 20px;
 }
 
 .the-back {
@@ -149,6 +153,8 @@
 
 #multiple-choice {
     display: none;
+    grid-column: 2/3;
+    align-content: center;
 }
 
 #onep-scorekeeper {

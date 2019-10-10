@@ -1,152 +1,152 @@
 let vip = [
     {name: "Albert Bourla",
     gender: "male",
-    photo: "./Albert Bourla.png",
+    photo: "./Albert_Bourla.png",
     check: true
 }, {
     name: "Frank D'Amelio",
     gender: "male",
-    photo: "./Frank D'Amelio.png",
+    photo: "./Frank_DAmelio.png",
     check: true
 }, {
     name: "Mikael Dolsten",
     gender: "male",
-    photo: "./Mikael Dolsten.png",
+    photo: "./Mikael_Dolsten.png",
     check: true
 }, {
     name: "Lidia Fonseca",
     gender: "female",
-    photo: "./Lidia Fonseca.png",
+    photo: "./Lidia_Fonseca.png",
     check: true
 }, {
     name: "Michael Goettler",
     gender: "male",
-    photo: "./Michael Goettler.png",
+    photo: "./Michael_Goettler.png",
     check: true
 }, {
     name: "Angela Hwang",
     gender: "female",
-    photo: "./Angela Hwang.png",
+    photo: "./Angela_Hwang.png",
     check: true
 }, {
     name: "Rady Johnson",
     gender: "male",
-    photo: "./Rady Johnson.png",
+    photo: "./Rady_Johnson.png",
     check: true
 }, {
     name: "Douglas Lankler",
     gender: "male",
-    photo: "./Doug Lankler.png",
+    photo: "./Doug_Lankler.png",
     check: true
 }, {
     name: "Freda Lewis-Hall",
     gender: "female",
-    photo: "./Freda Lewis Hall.png",
+    photo: "./Freda_Lewis_Hall.png",
     check: true
 }, {
     name: "Rod MacKenzie",
     gender: "male",
-    photo: "./Rod Mackenzie.png",
+    photo: "./Rod_Mackenzie.png",
     check: true
 }, {
     name: "Dawn Rogers",
     gender: "female",
-    photo: "./Dawn Rogers.png",
+    photo: "./Dawn_Rogers.png",
     check: true
 }, {
     name: "Sally Susman",
     gender: "female",
-    photo: "./Sally Susman.png",
+    photo: "./Sally_Susman.png",
     check: true
 }, {
     name: "John Young",
     gender: "male",
-    photo: "./John Young.png",
+    photo: "./John_Young.png",
     check: true
 }, {
     name: "Jim C. Smith",
     gender: "male",
-    photo: "./Jim C Smith.png",
+    photo: "./Jim_C_Smith.png",
     check: true
 }, {
     name: "W. Don Cornwell",
     gender: "male",
-    photo: "./W Don Cornwell.png",
+    photo: "./W_Don_Cornwell.png",
     check: true
 }, {
     name: "Joe Echevarria",
     gender: "male",
-    photo: "./Joe Echevarria.png",
+    photo: "./Joe_Echevarria.png",
     check: true
 }, {
     name: "Helen H. Hobbs",
     gender: "female",
-    photo: "./Helen Hobbs.png",
+    photo: "./Helen_Hobbs.png",
     check: true
 }, {
     name: "Scott Gottlieb",
     gender: "male",
-    photo: "./Scott Gottlieb.png",
+    photo: "./Scott_Gottlieb.png",
     check: true
 }, {
     name: "Suzanne Nora Johnson",
     gender: "female",
-    photo: "./Suzanne Nora Johnson.png",
+    photo: "./Suzanne_Nora_Johnson.png",
     check: true
 }, {
     name: "James M. Kilts",
     gender: "male",
-    photo: "James M Kilts.png",
+    photo: "./James_M_Kilts.png",
     check: true
 }, {
     name: "Shantanu Narayen",
     gender: "male",
-    photo: "./Shantanu Narayen.png",
+    photo: "./Shantanu_Narayen.png",
     check: true
 }, {
     name: "Ronald E. Blaylock",
-    gender: "female",
-    photo: "./Ronald E Blaylock.png",
+    gender: "male",
+    photo: "./Ronald_E_Blaylock.png",
     check: true
 }, {
     name: "Dan Littman",
     gender: "male",
-    photo: "./Dan Littman.png",
+    photo: "./Dan_Littman.png",
     check: true
 }, {
     name: "Ian Read",
     gender: "male",
-    photo: "./Ian Read.png",
+    photo: "./Ian_Read.png",
     check: true
 }, {
     name: "Fake 1",
     gender: "male",
-    photo: "./Fake 1.png",
+    photo: "./Fake_1.png",
     check: false
 }, {
     name: "Fake 3",
     gender: "male",
-    photo: "./Fake 3.png",
+    photo: "./Fake_3.png",
     check: false
 }, {
     name: "Fake 6",
     gender: "male",
-    photo: "./Fake 6.png",
+    photo: "./Fake_6.png",
     check: false
 }, {
     name: "Fake 4",
     gender: "female",
-    photo: "./Fake 4.png",
+    photo: "./Fake_4.png",
     check: false
 }, {
     name: "Fake 5",
     gender: "female",
-    photo: "./Fake 5.png",
+    photo: "./Fake_5.png",
     check: false
 }, {
     name: "Fake 8",
     gender: "female",
-    photo: "./Fake 8.png",
+    photo: "./Fake_8.png",
     check: false
 }
 ]
