@@ -50,7 +50,13 @@ IF THE USER CLICKS “PLAY AGAIN”
             2. “Enter player names” (h1)
             3. Three labeled text inputs for players 1, 2, and 3 (input x3)
             4. Start Game button (button)
-        4. PAGE 4 - Gameplay
+        4. PAGE 4 - Rules/Get Ready
+            1. Header (div)
+                1. Logo (img)
+                2. Empty p Tag (p)
+            2. Rules (p)
+            3. Start Game button (button)
+        5. PAGE 4 - Gameplay
             1. Header (div)
                 1. Logo (img)
                 2. Player Name (p)
@@ -70,7 +76,7 @@ IF THE USER CLICKS “PLAY AGAIN”
                 1. Meter with 10 stars (img)
                 2. Meter with 10 stars (img)
                 3. Meter with 10 stars (img)
-        5. PAGE 5 - Win/Lose/Grade
+        6. PAGE 5 - Win/Lose/Grade
             1. Header (div)
                 1. Logo (img)
                 2. Empty p tag

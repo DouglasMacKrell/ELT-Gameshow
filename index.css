@@ -1,19 +1,103 @@
 #page1 {
-    display: grid,
+    display: grid;
+    grid-column: 1fr;
+    justify-content: center;
+    text-align: center;
+    background-image: linear-gradient(blue, white);
+    height: 100vh;
+}
+
+#logo-main {
+    width: 50%;
+    justify-self: center;
+}
+
+#start-game {
+    width: 25%;
+    height: 30px;
+    justify-self: center;
+    background-color: blue;
+    border-radius: 10px;
+    border: solid 3px skyblue;
+    color: white;
+    margin-bottom: 10px;
 }
 
 #page2 {
-    display: none,
+    display: none;
+    grid-column: 1fr 1fr;
+    align-content: center;
+    justify-self: center;
+    text-align: center;
+    background-image: linear-gradient(lightgray, white);
+    height: 100vh;
+}
+
+.player-select {
+    width: 25%;
+    height: 30px;
+    justify-self: center;
+    background-color: blue;
+    border-radius: 10px;
+    border: solid 3px skyblue;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    background-color: blue;
+    object-position: left;
+
+}
+
+.logo-head {
+    height: 100px;
+}
+
+#how-many-players {
+    display: grid;
+
+
 }
 
 #page3 {
-    display: none,
+    display: none;
+    grid-column: 1fr 1fr;
+    align-content: center;
+    justify-self: center;
+    text-align: center;
+    background-image: linear-gradient(lightgray, white);
+    height: 100vh;
 }
 
-#page14{
-    display: none,
+#page4{
+    display: none;
+    grid-column: 1fr 1fr;
+    align-content: center;
+    justify-self: center;
+    text-align: center;
+    background-image: linear-gradient(lightgray, white);
+    height: 100vh;
 }
 
 #page5 {
-    display: none,
+    display: none;
+    grid-column: 1fr 1fr;
+    align-content: center;
+    justify-self: center;
+    text-align: center;
+    background-image: linear-gradient(lightgray, white);
+    height: 100vh;
+}
+
+#page6 {
+    display: none;
+    grid-column: 1fr 1fr;
+    align-content: center;
+    justify-self: center;
+    text-align: center;
+    background-image: linear-gradient(lightgray, white);
+    height: 100vh;
 }

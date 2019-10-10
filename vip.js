@@ -4,3 +4,7 @@ let vip = [
     "photo": "./Albert\ Bourla"
 }
 ]
+
+module.exports = {
+    vip,
+}
