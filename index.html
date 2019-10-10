@@ -2,6 +2,9 @@
 <html>
     <head>
         <title>You Down With ELT and the BOD?</title>
+        <script src="./vip.js" type="text/javascript"></script>
+        <script src="./male_names.js" type="text/javascript"></script>
+        <script src="./female_names.js" type="text/javascript"></script>
         <script src="./index.js" type="text/javascript"></script>
         <link href="index.css" rel="stylesheet" type="text/css">
     </head>
@@ -36,7 +39,7 @@
             </div>
             <div id="rules">
                 <h1>How well do you know the ELT and the BOD?</h1>
-                <p>Prepare to find out! One player at a time, you first be shown a photo of a potential ELT or BOD Member. Take a good look at them! By clicking on the photograph, 5 buttons will be displayed - 4 potential names, and a button that lets you guess that the pictured person is NOT an ELT or BOD Member! There are fake pictures and fake names included to make this harder, so pay close attention! Correct answers will be logged at the bottom of the screen as the game progresses. The player or players with the most correct answers at the end of the game, wins! Good luck!</p>
+                <p>Prepare to find out! One player at a time, you first be shown a photo of a potential ELT or BOD Member. Take a good look at them! By clicking on the photograph, 5 buttons will be displayed - 4 potential names, and a button that lets you guess that the pictured person is NOT an ELT or BOD Member! There are fake pictures and fake names included to make this harder, so pay close attention! Correct answers will be logged at the bottom of the screen as the game progresses. The player (or players) with the most correct answers at the end of the game, win! Good luck!</p>
                 <button class="player-select" id="begin-challenge">Let's Begin!</button> 
             </div>
         </div>
@@ -47,7 +50,135 @@
             </audio>
         </div>
         <div id="page5">
-
+            <div class="header">
+                <img class="logo-head" src="You Down With ELT Logo ALPHA.png" alt="Game Show Logo" />
+                <p id="player-name-display"></p>
+            </div>
+            <div class="main-container">
+                <div class="the-card">
+                    <div class="the-front" id="logo-side">
+                        <img src="You Down With ELT Logo ALPHA.png" id="card-back-logo" alt="Logo" />
+                    </div>
+                    <div class="the-back" id="picture-side">
+                        <img id="vip-pic" alt="Profile Picture" />
+                    </div>
+                </div>
+            </div>
+            <div id="multiple-choice">
+                <button class="player-select" id="choice-one"></button>
+                <button class="player-select" id="choice-two"></button>
+                <button class="player-select" id="choice-three"></button>
+                <button class="player-select" id="choice-four"></button>
+                <button class="player-select" id="choice-five">NOT AN ELT/BOD MEMBER</button>
+            </div>
+            <div id="onep-scorekeeper">
+                <div class="meter first-player" id="p1-1p-meter">
+                    <img id="p1-1p-star1" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star2" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star3" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star4" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star5" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star6" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star7" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star8" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star9" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star10" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star11" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star12" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star13" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star14" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star15" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star16" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star17" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star18" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star19" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star20" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star21" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star22" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star23" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star24" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star25" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star26" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star27" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star28" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star29" class="star" src="Star.png" alt="star" />
+                    <img id="p1-1p-star30" class="star" src="Star.png" alt="star" />
+                </div>
+            </div>
+            <div id="twop-scorekeeper">
+                <div class="meter first-player" id="p1-2p-meter">
+                    <img id="p1-2p-star1" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star2" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star3" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star4" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star5" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star6" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star7" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star8" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star9" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star10" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star11" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star12" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star13" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star14" class="star" src="Star.png" alt="star" />
+                    <img id="p1-2p-star15" class="star" src="Star.png" alt="star" />
+                </div>
+                <div class="meter second-player" id="p2-2p-meter">
+                    <img id="p2-2p-star1" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star2" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star3" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star4" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star5" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star6" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star7" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star8" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star9" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star10" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star11" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star12" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star13" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star14" class="star" src="Star.png" alt="star" />
+                    <img id="p2-2p-star15" class="star" src="Star.png" alt="star" />
+                </div>
+            </div>
+            <div id="threep-scorekeeper">
+                <div class="meter first-player" id="p1-3p-meter">
+                    <img id="p1-3p-star1" class="star" src="Star.png" alt="star" />
+                    <img id="p1-3p-star2" class="star" src="Star.png" alt="star" />
+                    <img id="p1-3p-star3" class="star" src="Star.png" alt="star" />
+                    <img id="p1-3p-star4" class="star" src="Star.png" alt="star" />
+                    <img id="p1-3p-star5" class="star" src="Star.png" alt="star" />
+                    <img id="p1-3p-star6" class="star" src="Star.png" alt="star" />
+                    <img id="p1-3p-star7" class="star" src="Star.png" alt="star" />
+                    <img id="p1-3p-star8" class="star" src="Star.png" alt="star" />
+                    <img id="p1-3p-star9" class="star" src="Star.png" alt="star" />
+                    <img id="p1-3p-star10" class="star" src="Star.png" alt="star" />
+                </div>
+                <div class="meter second-player" id="p2-3p-meter">
+                    <img id="p2-3p-star1" class="star" src="Star.png" alt="star" />
+                    <img id="p2-3p-star2" class="star" src="Star.png" alt="star" />
+                    <img id="p2-3p-star3" class="star" src="Star.png" alt="star" />
+                    <img id="p2-3p-star4" class="star" src="Star.png" alt="star" />
+                    <img id="p2-3p-star5" class="star" src="Star.png" alt="star" />
+                    <img id="p2-3p-star6" class="star" src="Star.png" alt="star" />
+                    <img id="p2-3p-star7" class="star" src="Star.png" alt="star" />
+                    <img id="p2-3p-star8" class="star" src="Star.png" alt="star" />
+                    <img id="p2-3p-star9" class="star" src="Star.png" alt="star" />
+                    <img id="p2-3p-star10" class="star" src="Star.png" alt="star" />
+                </div>
+                <div class="meter third-player" id="p3-3p-meter">
+                    <img id="p3-3p-star1" class="star" src="Star.png" alt="star" />
+                    <img id="p3-3p-star2" class="star" src="Star.png" alt="star" />
+                    <img id="p3-3p-star3" class="star" src="Star.png" alt="star" />
+                    <img id="p3-3p-star4" class="star" src="Star.png" alt="star" />
+                    <img id="p3-3p-star5" class="star" src="Star.png" alt="star" />
+                    <img id="p3-3p-star6" class="star" src="Star.png" alt="star" />
+                    <img id="p3-3p-star7" class="star" src="Star.png" alt="star" />
+                    <img id="p3-3p-star8" class="star" src="Star.png" alt="star" />
+                    <img id="p3-3p-star9" class="star" src="Star.png" alt="star" />
+                    <img id="p3-3p-star10" class="star" src="Star.png" alt="star" />
+                </div>
+            </div>
         </div>
         <div id="page6">
 

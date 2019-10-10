@@ -1,0 +1,1 @@
+let women = ["Lidia Fonseca", "Angela Hwang", "Freda Lewis-Hall", "Dawn Rogers", "Sally Susman", "Helen H. Hobbs", "Suzanne Nora Johnson", "Kirsten Lund-Jurgensen", "Laurie Olson", "Frances Fergusson", "Constance Horner"]

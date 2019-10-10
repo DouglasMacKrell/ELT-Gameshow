@@ -4,25 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
     setUpBtnListener1()
     setUpBtnListener2()
     setUpBtnListener3()
+    setUpBtnListener4()
 })
 
 document.addEventListener("submit", (event) => {
     event.preventDefault()
 }) 
-
-let vip = [
-    {name: "Albert Bourla",
-    gender: "male",
-    photo: "./Albert Bourla.png"
-}, {
-    name: "Frank D'Amelio",
-    gender: "male",
-    photo: "./Frank D'Amelio.png"
-}
-]
-
-let players = {}
-
 
 const setUpBtnListener1 = () => {
     const flipPage = document.querySelector("#start-game")
@@ -32,8 +19,9 @@ const setUpBtnListener1 = () => {
 const turnPage1 = () => {
     document.querySelector("#page1").style.display = "none"
     document.querySelector("#page2").style.display = "grid"
-    console.log(vip[1].name)
+    console.log(vip[23].name)
 }
+
 
 const setUpBtnListener2 = () => {
     const onePlayer = document.querySelector("#one-player")
@@ -44,7 +32,10 @@ const setUpBtnListener2 = () => {
     threePlayers.addEventListener("click", turnPage2three)
 }
 
+let numberOfPlayers = 0
+
 const turnPage2one = () => {
+    numberOfPlayers = 1
     let playerOne = document.createElement("input");
     playerOne.setAttribute("type", "text")
     playerOne.setAttribute("id", "player-one")
@@ -61,6 +52,7 @@ const turnPage2one = () => {
 }
 
 const turnPage2two = () => {
+    numberOfPlayers = 2
     let playerOne = document.createElement("input");
     playerOne.setAttribute("type", "text")
     playerOne.setAttribute("id", "player-one")
@@ -86,6 +78,7 @@ const turnPage2two = () => {
 }
 
 const turnPage2three = () => {
+    numberOfPlayers = 3
     let playerOne = document.createElement("input");
     playerOne.setAttribute("type", "text")
     playerOne.setAttribute("id", "player-one")
@@ -144,11 +137,58 @@ const saveNames = () => {
         document.querySelector("#page3").style.display = "none"
         document.querySelector("#page4").style.display = "grid"    
     }
-
+    console.log(numberOfPlayers)
 }
 
 let playerOneName = ""
 let playerTwoName = ""
 let playerThreeName = ""
 
+const setUpBtnListener4 = () => {
+    let beginGame = document.querySelector("#begin-challenge")
+    beginGame.addEventListener("click", startGame)
+}
 
+const startGame = () => {
+    document.querySelector("#page4").style.display = "none"
+    document.querySelector("#page5").style.display = "grid"
+    document.querySelector("#music").style.display = "none"
+    let audio = document.querySelector("#theme-song")
+    audio.pause()
+    console.log(randomVip().name)
+    if (numberOfPlayers === 1) {
+        onePlayerGame()
+    } else if (numberOfPlayers === 2) {
+        twoPlayerGame()
+    } else {
+        threePlayerGame()
+    }
+}
+
+let usedVip = []
+
+const randomIndex = (arr) => {
+    let random = Math.floor(Math.random() * arr.length)
+    return random
+}
+
+const randomVip = () => {
+    return vip[randomIndex(vip)]
+}
+
+const randomWoman = () => {
+    return women[randomIndex(women)]
+}
+
+const randomMan = () => {
+    return men[randomIndex(men)]
+}
+
+const onePlayerGame = () => {
+    if (usedVip.length < 30) {
+        let vipSelect = randomVip()
+        
+    } else {
+        endGame()
+    }
+}
