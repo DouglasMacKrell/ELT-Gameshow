@@ -1,8 +1,20 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 #page1 {
     display: grid;
     grid-column: 1fr;
     justify-content: center;
     text-align: center;
+    background-size: cover;
     background-image: linear-gradient(blue, white);
     height: 100vh;
 }
@@ -30,6 +42,7 @@
     justify-self: center;
     text-align: center;
     background-image: linear-gradient(lightgray, white);
+    background-size: contain;
     height: 100vh;
 }
 
@@ -48,8 +61,14 @@
     position: absolute;
     width: 100%;
     background-color: blue;
-    object-position: left;
-
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-self: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    left: 0px;
+    top: 0px;
 }
 
 .logo-head {
@@ -82,6 +101,11 @@
     height: 100vh;
 }
 
+#rules {
+    width: 75%;
+    justify-self: center;
+}
+
 #music {
     display: inline;
 }
@@ -98,9 +122,10 @@
 
 .main-container {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     justify-self: center;
+    z-index: 6;
 }
 
 .the-card {
@@ -159,6 +184,14 @@
 
 #onep-scorekeeper {
     display: none;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    z-index: 0;
 }
 
 #twop-scorekeeper {
@@ -167,6 +200,133 @@
 
 #threep-scorekeeper {
     display: none;
+}
+
+.star {
+    width: 50px;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#p1-1p-star1 {
+    visibility: hidden;
+}
+
+#p1-1p-star2 {
+    visibility: hidden;
+}
+
+#p1-1p-star3 {
+    visibility: hidden;
+}
+
+#p1-1p-star4 {
+    visibility: hidden;
+}
+
+#p1-1p-star5 {
+    visibility: hidden;
+}
+
+#p1-1p-star6 {
+    visibility: hidden;
+}
+
+#p1-1p-star7 {
+    visibility: hidden;
+}
+
+#p1-1p-star8 {
+    visibility: hidden;
+}
+
+#p1-1p-star9 {
+    visibility: hidden;
+}
+
+#p1-1p-star10 {
+    visibility: hidden;
+}
+
+#p1-1p-star11 {
+    visibility: hidden;
+}
+
+#p1-1p-star12 {
+    visibility: hidden;
+}
+
+#p1-1p-star13 {
+    visibility: hidden;
+}
+
+#p1-1p-star14 {
+    visibility: hidden;
+}
+
+#p1-1p-star15 {
+    visibility: hidden;
+}
+
+#p1-1p-star16 {
+    visibility: hidden;
+}
+
+#p1-1p-star17 {
+    visibility: hidden;
+}
+
+#p1-1p-star18 {
+    visibility: hidden;
+}
+
+#p1-1p-star19 {
+    visibility: hidden;
+}
+
+#p1-1p-star20 {
+    visibility: hidden;
+}
+
+#p1-1p-star21 {
+    visibility: hidden;
+}
+
+#p1-1p-star22 {
+    visibility: hidden;
+}
+
+#p1-1p-star23 {
+    visibility: hidden;
+}
+
+#p1-1p-star24 {
+    visibility: hidden;
+}
+
+#p1-1p-star25 {
+    visibility: hidden;
+}
+
+#p1-1p-star26 {
+    visibility: hidden;
+}
+
+#p1-1p-star27 {
+    visibility: hidden;
+}
+
+#p1-1p-star28 {
+    visibility: hidden;
+}
+
+#p1-1p-star29 {
+    visibility: hidden;
+}
+
+#p1-1p-star30 {
+    visibility: hidden;
 }
 
 #page6 {

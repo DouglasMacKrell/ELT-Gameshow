@@ -38,6 +38,14 @@ const setUpBtnListener2 = () => {
 
 let numberOfPlayers = 0
 
+let playerOneStarCounter = 0
+let playerTwoStarCounter = 0
+let playerThreeStarCounter = 0
+
+let playerOneName = ""
+let playerTwoName = ""
+let playerThreeName = ""
+
 const turnPage2one = () => {
     numberOfPlayers = 1
     let playerOne = document.createElement("input");
@@ -143,9 +151,6 @@ const saveNames = () => {
     }
 }
 
-let playerOneName = ""
-let playerTwoName = ""
-let playerThreeName = ""
 
 const setUpBtnListener4 = () => {
     let beginGame = document.querySelector("#begin-challenge")
@@ -198,6 +203,9 @@ const randomMultChoiceBtn = () => {
 }
 
 const onePlayerGame = () => {
+    let p1NameDisplay = document.querySelector("#player-name-display")
+    p1NameDisplay.innerText = `Player 1: ${playerOneName}`
+    document.querySelector("#onep-scorekeeper").style.display = "grid"
     if (usedVip.length < 30) {
         let multChoiceBtn1 = document.querySelector("#choice-one")
         let multChoiceBtn2 = document.querySelector("#choice-two")
@@ -209,6 +217,7 @@ const onePlayerGame = () => {
         let vipSelect = randomVip()
         for (vip of usedVip) {
             while (vip.name === vipSelect.name) {
+                console.log(vip.name)
                 vipSelect = randomVip()
             }
         }
@@ -221,25 +230,28 @@ const onePlayerGame = () => {
                 let rightAnswer = randomMultChoiceBtn()
                 correctAnswer = rightAnswer.value
                 rightAnswer.innerText = vipSelect.name
-                for(button of multChoiceBtns) {
+                for(let button of multChoiceBtns) {
+                    let someRandoMan = randomMan()
                     if (!button.innerText) {
-                        let someRandoMan = randomMan()
                         while (someRandoMan === vipSelect.name) {
-                            console.log("gotcha correct repeat")
+                            console.log("gotcha dupe correct answer")
                             someRandoMan = randomMan()
                         }
-                        filledBtn.push(someRandoMan)
-                        if (someRandoMan === button.innerText) {
-                            console.log("gotcha btn dupe")
-                            someRandoMan =  randomMan()
-                            button.innerText = someRandoMan
+                        for (let btn of filledBtn) {
+                            while (btn === someRandoMan) {
+                                console.log("gotcha dupe btn")
+                                someRandoMan = randomMan()
+                            }
                         }
                         button.innerText = someRandoMan
+                        filledBtn.push(someRandoMan)
                     } 
                 }
                 vipPic.addEventListener("click", () => {
                     document.querySelector("#multiple-choice").style.display = "grid"
                     document.querySelector(".the-card").style.transform = "rotateY(180deg)"
+                    document.querySelector(".main-container").style.width = "400px"
+                    document.querySelector(".main-container").style.height = "400px"
                 })
 
             } else {
@@ -247,25 +259,28 @@ const onePlayerGame = () => {
                 vipPic.src = vipSelect.photo
                 let rightAnswer = multChoiceBtn5
                 correctAnswer = rightAnswer.value
-                for(button of multChoiceBtns) {
+                for(let button of multChoiceBtns) {
+                    let someRandoMan = randomMan()
                     if (!button.innerText) {
-                        let someRandoMan = randomMan()
                         while (someRandoMan === vipSelect.name) {
-                            console.log("gotcha correct repeat")
+                            console.log("gotcha dupe correct answer")
                             someRandoMan = randomMan()
                         }
-                        filledBtn.push(someRandoMan)
-                        if (someRandoMan === button.innerText) {
-                            console.log("gotcha btn dupe")
-                            someRandoMan =  randomMan()
-                            button.innerText = someRandoMan
+                        for (let btn of filledBtn) {
+                            while (btn === someRandoMan) {
+                                console.log("gotcha dupe btn")
+                                someRandoMan = randomMan()
+                            }
                         }
                         button.innerText = someRandoMan
+                        filledBtn.push(someRandoMan)
                     } 
                 }
                 vipPic.addEventListener("click", () => {
                     document.querySelector("#multiple-choice").style.display = "grid"
                     document.querySelector(".the-card").style.transform = "rotateY(180deg)"
+                    document.querySelector(".main-container").style.width = "400px"
+                    document.querySelector(".main-container").style.height = "400px"
                 })
             }
         } else if (vipSelect.gender === "female") {
@@ -275,25 +290,28 @@ const onePlayerGame = () => {
                 let rightAnswer = randomMultChoiceBtn()
                 correctAnswer = rightAnswer.value
                 rightAnswer.innerText = vipSelect.name
-                for(button of multChoiceBtns) {
+                for(let button of multChoiceBtns) {
+                    let someRandoWoman = randomWoman()
                     if (!button.innerText) {
-                        let someRandoWoman = randomWoman()
                         while (someRandoWoman === vipSelect.name) {
-                            console.log("gotcha correct repeat")
+                            console.log("gotcha dupe correct answer")
                             someRandoWoman = randomWoman()
                         }
-                        filledBtn.push(someRandoWoman)
-                        if (someRandoWoman === button.innerText) {
-                            console.log("gotcha btn dupe")
-                            someRandoWoman =  randomWoman()
-                            button.innerText = someRandoWoman
+                        for (let btn of filledBtn) {
+                            while (btn === someRandoWoman) {
+                                console.log("gotcha dupe btn")
+                                someRandoWoman = randomWoman()
+                            }
                         }
                         button.innerText = someRandoWoman
+                        filledBtn.push(someRandoWoman)
                     } 
                 }
                 vipPic.addEventListener("click", () => {
                     document.querySelector("#multiple-choice").style.display = "grid"
                     document.querySelector(".the-card").style.transform = "rotateY(180deg)"
+                    document.querySelector(".main-container").style.width = "400px"
+                    document.querySelector(".main-container").style.height = "400px"
                 })
 
             } else {
@@ -301,25 +319,28 @@ const onePlayerGame = () => {
                 vipPic.src = vipSelect.photo
                 let rightAnswer = multChoiceBtn5
                 correctAnswer = rightAnswer.value
-                for(button of multChoiceBtns) {
+                for(let button of multChoiceBtns) {
+                    let someRandoWoman = randomWoman()
                     if (!button.innerText) {
-                        let someRandoWoman = randomWoman()
                         while (someRandoWoman === vipSelect.name) {
-                            console.log("gotcha correct repeat")
+                            console.log("gotcha dupe correct answer")
                             someRandoWoman = randomWoman()
                         }
-                        filledBtn.push(someRandoWoman)
-                        if (someRandoWoman === button.innerText) {
-                            console.log("gotcha btn dupe")
-                            someRandoWoman =  randomWoman()
-                            button.innerText = someRandoWoman
+                        for (let btn of filledBtn) {
+                            while (btn === someRandoWoman) {
+                                console.log("gotcha dupe btn")
+                                someRandoWoman = randomWoman()
+                            }
                         }
                         button.innerText = someRandoWoman
+                        filledBtn.push(someRandoWoman)
                     } 
                 }
                 vipPic.addEventListener("click", () => {
                     document.querySelector("#multiple-choice").style.display = "grid"
                     document.querySelector(".the-card").style.transform = "rotateY(180deg)"
+                    document.querySelector(".main-container").style.width = "400px"
+                    document.querySelector(".main-container").style.height = "400px"
                 })
             }
         }
@@ -387,3 +408,46 @@ const setUpMultChoiceBtn5 = () => {
         }
     })
 }
+
+const incrementStars = () => {
+    if (numberOfPlayers === 1) {
+        playerOneStarCounter += 1
+        let currentStar = document.querySelectorAll(".p1-1p")
+        for (let star of currentStar) {
+            if (star.id === "p1-1p-star" + playerOneStarCounter) {
+                star.style.visibility = "visible"
+            }
+        }
+    }
+}
+
+const displayCorrect = () => {
+    console.log("That was correct")
+    document.querySelector("#multiple-choice").style.display = "none"
+    let correct = document.createElement("h1")
+    correct.innerText = "CORRECT!"
+    correct.id = "display-right-wrong"
+    let page = document.querySelector("#page5")
+    page.append(correct)
+    setTimeout(nextQuestion1p, 3000)
+}
+
+const displayIncorrect = () => {
+    console.log("That's wrong")
+    document.querySelector("#multiple-choice").style.display = "none"
+    let wrong = document.createElement("h1")
+    wrong.innerText = "INCORRECT!"
+    wrong.id = "display-right-wrong"
+    let page = document.querySelector("#page5")
+    page.append(wrong)
+}
+
+const nextQuestion1p = () => {
+    let rightWrong = document.querySelector("#display-right-wrong")
+    rightWrong.parentNode.removeChild(rightWrong)
+    document.querySelector(".the-card").style.transform = ""
+    document.querySelector(".main-container").style.width = "600px"
+    document.querySelector(".main-container").style.height = "600px"
+    onePlayerGame()
+}
+
