@@ -340,6 +340,13 @@ body {
 }
 
 #end-game-display-1p {
+    display: none;
+    width: 75%;
+    justify-self: center;
+}
+
+#end-game-display-multiplayer {
+    display: none;
     width: 75%;
     justify-self: center;
 }
