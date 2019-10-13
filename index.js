@@ -46,6 +46,10 @@ let playerOneName = ""
 let playerTwoName = ""
 let playerThreeName = ""
 
+let usedVip = []
+let correctAnswer = 0
+let vipSelect = {}
+
 const turnPage2one = () => {
     numberOfPlayers = 1
     let playerOne = document.createElement("input");
@@ -172,11 +176,10 @@ const startGame = () => {
     }
 }
 
-let usedVip = []
-let correctAnswer = 0
 
 const randomIndex = (arr) => {
     let random = Math.floor(Math.random() * arr.length)
+    console.log(`${arr} arr.length`, arr.length)
     return random
 }
 
@@ -192,6 +195,16 @@ const randomMan = () => {
     return men[randomIndex(men)]
 }
 
+const checkUsedVip = (arr) => {
+    for (const element of arr) {
+        while (element.name === vipSelect.name) {
+            console.log("gotcha dupe new random select")
+            vipSelect = randomVip()
+            checkUsedVip(arr)
+        }
+    }
+}
+
 const randomMultChoiceBtn = () => {
     let multChoiceBtn1 = document.querySelector("#choice-one")
     let multChoiceBtn2 = document.querySelector("#choice-two")
@@ -203,26 +216,36 @@ const randomMultChoiceBtn = () => {
 }
 
 const onePlayerGame = () => {
+    console.log("running One Player Game")
     let p1NameDisplay = document.querySelector("#player-name-display")
     p1NameDisplay.innerText = `Player 1: ${playerOneName}`
     document.querySelector("#onep-scorekeeper").style.display = "grid"
+    console.log(usedVip.length)
+    console.log(vip.length)
     if (usedVip.length < 30) {
         let multChoiceBtn1 = document.querySelector("#choice-one")
+        multChoiceBtn1.innerText = ""
         let multChoiceBtn2 = document.querySelector("#choice-two")
+        multChoiceBtn2.innerText = ""
         let multChoiceBtn3 = document.querySelector("#choice-three")
+        multChoiceBtn3.innerText = ""
         let multChoiceBtn4 = document.querySelector("#choice-four")
+        multChoiceBtn4.innerText = ""
         let multChoiceBtn5 = document.querySelector("#choice-five")
         let multChoiceBtns = [multChoiceBtn1, multChoiceBtn2, multChoiceBtn3, multChoiceBtn4]
         let filledBtn = []
-        let vipSelect = randomVip()
-        for (vip of usedVip) {
-            while (vip.name === vipSelect.name) {
-                console.log(vip.name)
-                vipSelect = randomVip()
-            }
-        }
+        debugger
+        vipSelect = randomVip()
+        // console.log("vipSelect", vipSelect)
+        // console.log("vip select", vipSelect.name)
+        // for (const element of usedVip) {
+        //     while (element.name === vipSelect.name) {
+        //         console.log("gotcha dupe new random select")
+        //         vipSelect = randomVip()
+        //     }
+        // }
+        checkUsedVip(usedVip)
         usedVip.push(vipSelect)
-        console.log(usedVip)
         if (vipSelect.gender === "male") {
             if (vipSelect.check === true) {
                 let vipPic = document.querySelector("#vip-pic")
@@ -429,7 +452,7 @@ const displayCorrect = () => {
     correct.id = "display-right-wrong"
     let page = document.querySelector("#page5")
     page.append(correct)
-    setTimeout(nextQuestion1p, 3000)
+    setTimeout(nextQuestion1p, 2000)
 }
 
 const displayIncorrect = () => {
@@ -440,6 +463,7 @@ const displayIncorrect = () => {
     wrong.id = "display-right-wrong"
     let page = document.querySelector("#page5")
     page.append(wrong)
+    setTimeout(nextQuestion1p, 2000)
 }
 
 const nextQuestion1p = () => {
@@ -449,5 +473,38 @@ const nextQuestion1p = () => {
     document.querySelector(".main-container").style.width = "600px"
     document.querySelector(".main-container").style.height = "600px"
     onePlayerGame()
+}
+
+const endGame = () => {
+    if (numberOfPlayers === 1) {
+        document.querySelector("#page5").style.display = "none"
+        document.querySelector("#page6").style.display = "grid"
+        document.querySelector("#end-game-display-1p").style.display = "grid"
+        let grade = document.querySelector("#letter-grade")
+        let feedback = document.querySelector("#end-game-text-1p")
+        if (playerOneStarCounter === 30) {
+            grade.innerText = "A+"
+            feedback.innerText = "Perfect score! You REALLY know your BOD and ELT Members! Please help your fellow Security Officers remember these VIPs by pointing them out when you encounter them on campus."
+        } else if (playerOneStarCounter <= 29 && playerOneStarCounter >= 27) {
+            grade.innerText = "A"
+            feedback.innerText = "Great job! You REALLY know your BOD and ELT Members! Please help your fellow Security Officers remember these VIPs by pointing them out when you encounter them on campus."
+        } else if (playerOneStarCounter <= 26 && playerOneStarCounter >= 24) {
+            grade.innerText = "B"
+            feedback.innerText = "Those are some sharp eyes you've got! A decent score, but we really need you to know ALL of the ELT and BOD Members by both name and face. Please take a moment to brush up on some of the people you missed with your fellow Security Officers!"
+        } else if (playerOneStarCounter <= 23 && playerOneStarCounter >= 21) {
+            grade.innerText = "C"
+            feedback.innerText = "You know more than 2/3rds of the BOD and ELT, but you really need to make sure you take note of VIPs you missed. Review your ELT and BOD sheet regularly so you remember both their faces and names!"
+        } else if (playerOneStarCounter <= 20 && playerOneStarCounter >= 18) {
+            grade.innerText = "D"
+            feedback.innerText = "You do know more than half of the ELT and BOD, but we really need you to know 100%. Don't be afraid to reach out to your fellow Security Officers and Management to help you review - and be sure to take note of this website so you can keep practicing!"
+        } else if (playerOneStarCounter <= 17) {
+            grade.innerText = "F"
+            feedback.innerText = "You're in serious need of review. As one of Pfizer's Security Officers, we need you to not only spot - but also quickly identify by name - the Pfizer Board Of Directors and Pfizer's Executive Leadership Team. Please seek out your fellow Security Officers and Management, and ask them to help you review these VIPs. Remember: It's your responsibility to know these people, and a core requirement of your daily duties."
+        }
+    } else if (numberOfPlayers === 2) {
+
+    } else {
+
+    }
 }
 

@@ -338,3 +338,8 @@ body {
     background-image: linear-gradient(lightgray, white);
     height: 100vh;
 }
+
+#end-game-display-1p {
+    width: 75%;
+    justify-self: center;
+}
