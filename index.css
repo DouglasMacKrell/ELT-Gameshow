@@ -25,13 +25,6 @@ body {
 }
 
 #start-game {
-    width: 25%;
-    height: 30px;
-    justify-self: center;
-    background-color: blue;
-    border-radius: 10px;
-    border: solid 3px skyblue;
-    color: white;
     margin-bottom: 10px;
 }
 
@@ -48,13 +41,42 @@ body {
 
 .player-select {
     width: 200px;
-    height: 30px;
+    height: 50px;
+    font-size: large;
     justify-self: center;
     background-color: blue;
     border-radius: 10px;
-    border: solid 3px skyblue;
+    border: solid 3px darkblue;
     color: white;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    box-shadow: 10px 10px 5px black;
+}
+
+.player-select:hover {
+    background-color: gold;
+    border: solid 3px darkgoldenrod;
+    font-weight: bold;
+    color: black;
+}
+
+.vip-select {
+    width: 300px;
+    height: 50px;
+    font-size: large;
+    justify-self: center;
+    background-color: blue;
+    border-radius: 10px;
+    border: solid 3px darkblue;
+    color: white;
+    margin-bottom: 20px;
+    box-shadow: 10px 10px 5px black;
+}
+
+.vip-select:hover {
+    background-color: gold;
+    border: solid 3px darkgoldenrod;
+    font-weight: bold;
+    color: black;
 }
 
 .header {
@@ -77,8 +99,6 @@ body {
 
 #how-many-players {
     display: grid;
-
-
 }
 
 #page3 {
@@ -89,6 +109,15 @@ body {
     text-align: center;
     background-image: linear-gradient(lightgray, white);
     height: 100vh;
+}
+
+#name-input {
+    margin-bottom: 20px;
+}
+
+.input-box {
+    margin-right: 20px;
+
 }
 
 #page4 {
@@ -104,6 +133,10 @@ body {
 #rules {
     width: 75%;
     justify-self: center;
+}
+
+.rules {
+    margin-bottom: 20px;
 }
 
 #music {
@@ -172,7 +205,7 @@ body {
     border: 3px solid gold;
 }
 
-.the-card:hover {
+.main-container .the-card:hover {
     transform: rotateY(180deg);
 }
 
@@ -180,6 +213,10 @@ body {
     display: none;
     grid-column: 2/3;
     align-content: center;
+}
+
+#player-name-display {
+    background-color: red;
 }
 
 #onep-scorekeeper {
@@ -213,7 +250,7 @@ body {
 }
 
 #p2-2p-meter {
-    background-color: skyblue;
+    background-color: purple;
     grid-column: 2/3;
     width: 100%;
 }
@@ -237,7 +274,7 @@ body {
 }
 
 #p2-3p-meter {
-    background-color: skyblue;
+    background-color: purple;
     grid-column: 2/3;
     width: 100%;
 }

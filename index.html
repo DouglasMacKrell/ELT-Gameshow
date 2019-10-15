@@ -12,7 +12,7 @@
         <div id="page1">
             <img id="logo-main" src="You Down With ELT Logo ALPHA.png" alt="Game Show Logo" />
             <!-- <h1>and the BOD?</h1> -->
-            <button id="start-game">START GAME</button>
+            <button id="start-game" class="player-select">START GAME</button>
         </div>
         <div id="page2">
             <div class="header">
@@ -30,8 +30,9 @@
                 <img class="logo-head" src="You Down With ELT Logo ALPHA.png" alt="Game Show Logo" />
             </div>
             <form id="name-input">
-                <input type="submit" value="Save Names" id="save-names" />
+
             </form>
+            <button type="button" class="player-select" value="Save Names" id="save-names">Save Names</button>
         </div>
         <div id="page4">
             <div class="header">
@@ -39,7 +40,7 @@
             </div>
             <div id="rules">
                 <h1>How well do YOU know the ELT and the BOD?</h1>
-                <p>Prepare to find out! One player at a time, you'll first be shown a photo of a potential ELT or BOD Member. Take a good look at them! By clicking on the photograph, 5 buttons will be displayed - 4 potential names, and a button that lets you guess that the pictured person is NOT an ELT or BOD Member! There are fake pictures and fake names included to make this harder, so pay close attention! Correct answers will be logged at the bottom of the screen as the game progresses. The player (or players) with the most correct answers at the end of the game, win! Good luck!</p>
+                <p class="rules">Prepare to find out! One player at a time, you'll first be shown a photo of a potential ELT or BOD Member. Take a good look at them! By clicking on the photograph, 5 buttons will be displayed - 4 potential names, and a button that lets you guess that the pictured person is NOT an ELT or BOD Member! There are fake pictures and fake names included to make this harder, so pay close attention! Correct answers will be logged at the bottom of the screen as the game progresses. The player (or players) with the most correct answers at the end of the game, win! Good luck!</p>
                 <button class="player-select" id="begin-challenge">Let's Begin!</button> 
             </div>
         </div>
@@ -65,11 +66,11 @@
                 </div>
             </div>
             <div id="multiple-choice">
-                <button class="player-select" id="choice-one" value=1 ></button>
-                <button class="player-select" id="choice-two" value=2 ></button>
-                <button class="player-select" id="choice-three" value=3 ></button>
-                <button class="player-select" id="choice-four" value=4 ></button>
-                <button class="player-select" id="choice-five"value=5 >NOT AN ELT/BOD MEMBER</button>
+                <button class="vip-select" id="choice-one" value=1 ></button>
+                <button class="vip-select" id="choice-two" value=2 ></button>
+                <button class="vip-select" id="choice-three" value=3 ></button>
+                <button class="vip-select" id="choice-four" value=4 ></button>
+                <button class="vip-select" id="choice-five" value=5 >NOT AN ELT/BOD MEMBER</button>
             </div>
             <div id="onep-scorekeeper">
                 <div class="meter first-player" id="p1-1p-meter">
@@ -187,11 +188,13 @@
             <div id="end-game-display-1p">
                 <h1 id="letter-grade"></h1>
                 <p id="end-game-text-1p"></p>
+                <button type="button" id="play-again" class="player-select" onclick="playAgain()">Play Again?</button>
             </div>
             <div id="end-game-display-multiplayer">
                 <h3 id="congratulations" >CONGRATULATIONS</h3>
                 <h1 id="winner-id"></h1>
                 <p id="end-game-text-multiplayer"></p>
+                <button type="button" id="play-again" class="player-select" onclick="playAgain()">Play Again?</button>
             </div>
         </div>
     </body>

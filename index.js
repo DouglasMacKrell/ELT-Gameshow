@@ -58,6 +58,7 @@ const turnPage2one = () => {
     let playerOne = document.createElement("input");
     playerOne.setAttribute("type", "text")
     playerOne.setAttribute("id", "player-one")
+    playerOne.setAttribute("class", "input-box")
     playerOne.setAttribute("placeholder", "Enter Name")
     let labelOne = document.createElement("label")
     labelOne.setAttribute("for", "player-one")
@@ -75,6 +76,7 @@ const turnPage2two = () => {
     let playerOne = document.createElement("input");
     playerOne.setAttribute("type", "text")
     playerOne.setAttribute("id", "player-one")
+    playerOne.setAttribute("class", "input-box")
     playerOne.setAttribute("placeholder", "Enter Name")
     let labelOne = document.createElement("label")
     labelOne.setAttribute("for", "player-one")
@@ -82,10 +84,11 @@ const turnPage2two = () => {
     let playerTwo = document.createElement("input");
     playerTwo.setAttribute("type", "text")
     playerTwo.setAttribute("id", "player-two")
+    playerTwo.setAttribute("class", "input-box")
     playerTwo.setAttribute("placeholder", "Enter Name")
     let labelTwo = document.createElement("label")
     labelTwo.setAttribute("for", "player-two")
-    labelTwo.innerText = "Player 2: "
+    labelTwo.innerText = " Player 2: "
     let inputForm = document.querySelector("#name-input")
     inputForm.append(labelOne)
     inputForm.append(playerOne)
@@ -101,6 +104,7 @@ const turnPage2three = () => {
     let playerOne = document.createElement("input");
     playerOne.setAttribute("type", "text")
     playerOne.setAttribute("id", "player-one")
+    playerOne.setAttribute("class", "input-box")
     playerOne.setAttribute("placeholder", "Enter Name")
     let labelOne = document.createElement("label")
     labelOne.setAttribute("for", "player-one")
@@ -108,17 +112,19 @@ const turnPage2three = () => {
     let playerTwo = document.createElement("input");
     playerTwo.setAttribute("type", "text")
     playerTwo.setAttribute("id", "player-two")
+    playerTwo.setAttribute("class", "input-box")
     playerTwo.setAttribute("placeholder", "Enter Name")
     let labelTwo = document.createElement("label")
     labelTwo.setAttribute("for", "player-two")
-    labelTwo.innerText = "Player 2: "
+    labelTwo.innerText = " Player 2: "
     let playerThree = document.createElement("input");
     playerThree.setAttribute("type", "text")
     playerThree.setAttribute("id", "player-three")
+    playerThree.setAttribute("class", "input-box")
     playerThree.setAttribute("placeholder", "Enter Name")
     let labelThree = document.createElement("label")
     labelThree.setAttribute("for", "player-three")
-    labelThree.innerText = "Player 3: "
+    labelThree.innerText = " Player 3: "
     let inputForm = document.querySelector("#name-input")
     inputForm.append(labelOne)
     inputForm.append(playerOne)
@@ -132,8 +138,8 @@ const turnPage2three = () => {
 }
 
 const setUpBtnListener3 = () => {
-    let formSubmit = document.querySelector("#name-input")
-    formSubmit.addEventListener("submit", saveNames)
+    let formSubmit = document.querySelector("#save-names")
+    formSubmit.addEventListener("click", saveNames)
 }
 
 const saveNames = () => {
@@ -221,21 +227,26 @@ const playGame = () => {
         document.querySelector("#twop-scorekeeper").style.display = "grid"
         if (currentPlayer === "player1") {
             let p1NameDisplay = document.querySelector("#player-name-display")
+            p1NameDisplay.style.background = "red"
             p1NameDisplay.innerText = `Player 1: ${playerOneName}`
         } else {
             let p2NameDisplay = document.querySelector("#player-name-display")
+            p2NameDisplay.style.background = "purple"
             p2NameDisplay.innerText = `Player 2: ${playerTwoName}`
         }
     } else {
         document.querySelector("#threep-scorekeeper").style.display = "grid"
         if (currentPlayer === "player1") {
             let p1NameDisplay = document.querySelector("#player-name-display")
+            p1NameDisplay.style.background = "red"
             p1NameDisplay.innerText = `Player 1: ${playerOneName}`
         } else if (currentPlayer === "player2") {
             let p2NameDisplay = document.querySelector("#player-name-display")
+            p2NameDisplay.style.background = "purple"
             p2NameDisplay.innerText = `Player 2: ${playerTwoName}`
         } else {
             let p3NameDisplay = document.querySelector("#player-name-display")
+            p3NameDisplay.style.background = "green"
             p3NameDisplay.innerText = `Player 3: ${playerThreeName}`
         }
     }
@@ -584,7 +595,6 @@ const nextQuestion1p = () => {
 }
 
 const endGame = () => {
-    debugger
     if (numberOfPlayers === 1) {
         document.querySelector("#page5").style.display = "none"
         document.querySelector("#page6").style.display = "grid"
@@ -652,13 +662,6 @@ const endGame = () => {
                 if (grabber === 3) {
                     document.querySelector("#congratulations").style.display = "none"
                     winningText.innerText = "Bad news, players - you've all scored too low for anyone to win the game! You'll all need to review the members of the Board of Directors and Executive Leadership Team. It's your responsibility to know these people by both face and name at a moment's notice! Reach out to Management and your fellow Security Officers for help and support in your review!"
-                    let playAgainBtn = document.createElement("button")
-                    playAgainBtn.innerText = "Play Again?"
-                    playAgainBtn.id = "restart"
-                    playAgainBtn.className = "player-select"
-                    winningText.append(playAgainBtn)
-                    let restartBtn = document.querySelector("#restart")
-                    restartBtn.addEventListener("click", playAgain)
                     return
                 }
             }
@@ -684,13 +687,6 @@ const endGame = () => {
             winningText.innerText = `Please give a huge round of applause for ${sortedScores[0].name}! They really know the ELT and BOD Members!`
         }
 
-        let playAgainBtn = document.createElement("button")
-        playAgainBtn.innerText = "Play Again?"
-        playAgainBtn.id = "restart"
-        playAgainBtn.className = "player-select"
-        winningText.append(playAgainBtn)
-        let restartBtn = document.querySelector("#restart")
-        restartBtn.addEventListener("click", playAgain)
     }
 }
 
