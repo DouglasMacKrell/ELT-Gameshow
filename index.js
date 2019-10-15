@@ -645,12 +645,22 @@ const endGame = () => {
 
         let sortedScores = scores.sort(function(a, b){return a.score - b.score});
 
+        let grabber = 0
         for(let index in sortedScores) {
-            if (sortedScores.score <= 5) {
-                sortedScores.splice(index, 1)
-            }
-            if (sortedScores === []) {
-                winningText.innerText = "Bad news, players - you've all scored too low for anyone to win the game! You'll all need to review the members of the Board of Directors and Executive Leadership Team. It's your responsibility to know these people by both face and name at a moment's notice! Reach out to Management and your fellow Security Officers for help and support in your review!"
+            if (sortedScores[index].score <= 5) {
+                grabber += 1
+                if (grabber === 3) {
+                    document.querySelector("#congratulations").style.display = "none"
+                    winningText.innerText = "Bad news, players - you've all scored too low for anyone to win the game! You'll all need to review the members of the Board of Directors and Executive Leadership Team. It's your responsibility to know these people by both face and name at a moment's notice! Reach out to Management and your fellow Security Officers for help and support in your review!"
+                    let playAgainBtn = document.createElement("button")
+                    playAgainBtn.innerText = "Play Again?"
+                    playAgainBtn.id = "restart"
+                    playAgainBtn.className = "player-select"
+                    winningText.append(playAgainBtn)
+                    let restartBtn = document.querySelector("#restart")
+                    restartBtn.addEventListener("click", playAgain)
+                    return
+                }
             }
         }
 
@@ -674,20 +684,16 @@ const endGame = () => {
             winningText.innerText = `Please give a huge round of applause for ${sortedScores[0].name}! They really know the ELT and BOD Members!`
         }
 
-
-        // if (playerOneStarCounter === playerTwoStarCounter && playerTwoStarCounter === playerThreeStarCounter) {
-        //     winnerNames.innerText = `${playerOneName}, ${playerTwoName}, and ${playerThreeName}`
-        //     winningText.innerText = "A three way tie! Please give a huge round of applause for our three fantastic players who all really know their ELT and BOD Members!"
-        // } else if (playerOneStarCounter === playerTwoStarCounter) {
-        //     winnerNames.innerText = `${playerOneName} and ${playerTwoName}`
-        //     winningText.innerText = "A tie! Please give a huge round of applause for our two fantastic players for really knowing their ELT and BOD Members!"
-        // } else if (playerTwoStarCounter === playerThreeStarCounter) {
-        //     winnerNames.innerText = `${playerOneName} and ${playerTwoName}`
-        //     winningText.innerText = "A tie! Please give a huge round of applause for our two fantastic players for really knowing their ELT and BOD Members!"
-        // } else if (playerOneStarCounter > playerTwoStarCounter) {
-        //     winnerNames.innerText = `${playerOneName}`
-        //     winningText.innerText = `Please give a huge round of applause for ${playerOneName}! They really know the ELT and BOD Members!`
-        // }
+        let playAgainBtn = document.createElement("button")
+        playAgainBtn.innerText = "Play Again?"
+        playAgainBtn.id = "restart"
+        playAgainBtn.className = "player-select"
+        winningText.append(playAgainBtn)
+        let restartBtn = document.querySelector("#restart")
+        restartBtn.addEventListener("click", playAgain)
     }
 }
 
+const playAgain = () => {
+    window.location.reload()
+}
