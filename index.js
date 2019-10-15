@@ -391,10 +391,6 @@ const playGame = () => {
     }
 }
 
-const twoPlayerGame = () => {
-
-}
-
 const setUpMultChoiceBtn1 = () => {
     let btn1 = document.querySelector("#choice-one")
     btn1.addEventListener("click", () => {        
@@ -564,7 +560,6 @@ const incrementStars = () => {
 }
 
 const displayCorrect = () => {
-    console.log("That was correct")
     document.querySelector("#multiple-choice").style.display = "none"
     let correct = document.createElement("h1")
     correct.innerText = "CORRECT!"
@@ -575,7 +570,6 @@ const displayCorrect = () => {
 }
 
 const displayIncorrect = () => {
-    console.log("That's wrong")
     document.querySelector("#multiple-choice").style.display = "none"
     let wrong = document.createElement("h1")
     wrong.innerText = "INCORRECT!"
