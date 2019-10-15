@@ -50,6 +50,9 @@ let usedVip = []
 let correctAnswer = 0
 let vipSelect = {}
 
+let currentPlayer = "player1"
+
+
 const turnPage2one = () => {
     numberOfPlayers = 1
     let playerOne = document.createElement("input");
@@ -167,19 +170,12 @@ const startGame = () => {
     document.querySelector("#music").style.display = "none"
     let audio = document.querySelector("#theme-song")
     audio.pause()
-    if (numberOfPlayers === 1) {
-        onePlayerGame()
-    } else if (numberOfPlayers === 2) {
-        twoPlayerGame()
-    } else {
-        threePlayerGame()
-    }
+    playGame()
 }
 
 
 const randomIndex = (arr) => {
     let random = Math.floor(Math.random() * arr.length)
-    console.log(`${arr} arr.length`, arr.length)
     return random
 }
 
@@ -215,13 +211,34 @@ const randomMultChoiceBtn = () => {
     return randomButton
 }
 
-const onePlayerGame = () => {
+const playGame = () => {
     console.log("running One Player Game")
-    let p1NameDisplay = document.querySelector("#player-name-display")
-    p1NameDisplay.innerText = `Player 1: ${playerOneName}`
-    document.querySelector("#onep-scorekeeper").style.display = "grid"
-    console.log(usedVip.length)
-    console.log(vip.length)
+    if (numberOfPlayers === 1) {
+        document.querySelector("#onep-scorekeeper").style.display = "grid"
+        let p1NameDisplay = document.querySelector("#player-name-display")
+        p1NameDisplay.innerText = `Player 1: ${playerOneName}`
+    } else if (numberOfPlayers === 2) {
+        document.querySelector("#twop-scorekeeper").style.display = "grid"
+        if (currentPlayer === "player1") {
+            let p1NameDisplay = document.querySelector("#player-name-display")
+            p1NameDisplay.innerText = `Player 1: ${playerOneName}`
+        } else {
+            let p2NameDisplay = document.querySelector("#player-name-display")
+            p2NameDisplay.innerText = `Player 2: ${playerTwoName}`
+        }
+    } else {
+        document.querySelector("#threep-scorekeeper").style.display = "grid"
+        if (currentPlayer === "player1") {
+            let p1NameDisplay = document.querySelector("#player-name-display")
+            p1NameDisplay.innerText = `Player 1: ${playerOneName}`
+        } else if (currentPlayer === "player2") {
+            let p2NameDisplay = document.querySelector("#player-name-display")
+            p2NameDisplay.innerText = `Player 2: ${playerTwoName}`
+        } else {
+            let p3NameDisplay = document.querySelector("#player-name-display")
+            p3NameDisplay.innerText = `Player 3: ${playerThreeName}`
+        }
+    }
     if (usedVip.length < 30) {
         let multChoiceBtn1 = document.querySelector("#choice-one")
         multChoiceBtn1.innerText = ""
@@ -234,16 +251,7 @@ const onePlayerGame = () => {
         let multChoiceBtn5 = document.querySelector("#choice-five")
         let multChoiceBtns = [multChoiceBtn1, multChoiceBtn2, multChoiceBtn3, multChoiceBtn4]
         let filledBtn = []
-        debugger
         vipSelect = randomVip()
-        // console.log("vipSelect", vipSelect)
-        // console.log("vip select", vipSelect.name)
-        // for (const element of usedVip) {
-        //     while (element.name === vipSelect.name) {
-        //         console.log("gotcha dupe new random select")
-        //         vipSelect = randomVip()
-        //     }
-        // }
         checkUsedVip(usedVip)
         usedVip.push(vipSelect)
         if (vipSelect.gender === "male") {
@@ -372,6 +380,10 @@ const onePlayerGame = () => {
     }
 }
 
+const twoPlayerGame = () => {
+
+}
+
 const setUpMultChoiceBtn1 = () => {
     let btn1 = document.querySelector("#choice-one")
     btn1.addEventListener("click", () => {        
@@ -379,7 +391,16 @@ const setUpMultChoiceBtn1 = () => {
             incrementStars()
             displayCorrect()
         } else {
-            displayIncorrect()
+            if (currentPlayer === "player1") {
+                currentPlayer = "player2"
+                displayIncorrect()
+            } else if (currentPlayer === "player2") {
+                currentPlayer = "player3"
+                displayIncorrect()
+            } else {
+                currentPlayer = "player1"
+                displayIncorrect()
+            }
         }
     })
 }
@@ -391,7 +412,16 @@ const setUpMultChoiceBtn2 = () => {
             incrementStars()
             displayCorrect()
         } else {
-            displayIncorrect()
+            if (currentPlayer === "player1") {
+                currentPlayer = "player2"
+                displayIncorrect()
+            } else if (currentPlayer === "player2") {
+                currentPlayer = "player3"
+                displayIncorrect()
+            } else {
+                currentPlayer = "player1"
+                displayIncorrect()
+            }
         }
     })
 }
@@ -403,7 +433,16 @@ const setUpMultChoiceBtn3 = () => {
             incrementStars()
             displayCorrect()
         } else {
-            displayIncorrect()
+            if (currentPlayer === "player1") {
+                currentPlayer = "player2"
+                displayIncorrect()
+            } else if (currentPlayer === "player2") {
+                currentPlayer = "player3"
+                displayIncorrect()
+            } else {
+                currentPlayer = "player1"
+                displayIncorrect()
+            }
         }
     })
 }
@@ -415,7 +454,16 @@ const setUpMultChoiceBtn4 = () => {
             incrementStars()
             displayCorrect()
         } else {
-            displayIncorrect()
+            if (currentPlayer === "player1") {
+                currentPlayer = "player2"
+                displayIncorrect()
+            } else if (currentPlayer === "player2") {
+                currentPlayer = "player3"
+                displayIncorrect()
+            } else {
+                currentPlayer = "player1"
+                displayIncorrect()
+            }
         }
     })
 }
@@ -427,7 +475,16 @@ const setUpMultChoiceBtn5 = () => {
             incrementStars()
             displayCorrect()
         } else {
-            displayIncorrect()
+            if (currentPlayer === "player1") {
+                currentPlayer = "player2"
+                displayIncorrect()
+            } else if (currentPlayer === "player2") {
+                currentPlayer = "player3"
+                displayIncorrect()
+            } else {
+                currentPlayer = "player1"
+                displayIncorrect()
+            }
         }
     })
 }
@@ -439,6 +496,57 @@ const incrementStars = () => {
         for (let star of currentStar) {
             if (star.id === "p1-1p-star" + playerOneStarCounter) {
                 star.style.visibility = "visible"
+            }
+        }
+    } else if (numberOfPlayers === 2) {
+        if (currentPlayer === "player1") {
+            playerOneStarCounter += 1
+            currentPlayer = "player2"
+            let currentStar = document.querySelectorAll(".p1-2p")
+            for (let star of currentStar) {
+                if (star.id === "p1-2p-star" + playerOneStarCounter) {
+                    console.log("p1 star gotcha")
+                    star.style.visibility = "visible"
+                }
+            }
+        } else {
+            playerTwoStarCounter += 1
+            currentPlayer = "player1"
+            let currentStar = document.querySelectorAll(".p2-2p")
+            for (let star of currentStar) {
+                if (star.id === "p2-2p-star" + playerTwoStarCounter) {
+                    console.log("p2 star gotcha")
+                    star.style.visibility = "visible"
+                }
+            }
+        }
+    } else {
+        if (currentPlayer === "player1") {
+            playerOneStarCounter += 1
+            currentPlayer = "player2"
+            let currentStar = document.querySelectorAll(".p1-3p")
+            for (let star of currentStar) {
+                if (star.id === "p1-3p-star" + playerOneStarCounter) {
+                    star.style.visibility = "visible"
+                }
+            }
+        } else if (currentPlayer === "player2") {
+            playerTwoStarCounter += 1
+            currentPlayer = "player3"
+            let currentStar = document.querySelectorAll(".p2-3p")
+            for (let star of currentStar) {
+                if (star.id === "p2-3p-star" + playerTwoStarCounter) {
+                    star.style.visibility = "visible"
+                }
+            }
+        } else {
+            playerThreeStarCounter += 1
+            currentPlayer = "player1"
+            let currentStar = document.querySelectorAll(".p3-3p")
+            for (let star of currentStar) {
+                if (star.id === "p3-3p-star" + playerThreeStarCounter) {
+                    star.style.visibility = "visible"
+                }
             }
         }
     }
@@ -472,10 +580,11 @@ const nextQuestion1p = () => {
     document.querySelector(".the-card").style.transform = ""
     document.querySelector(".main-container").style.width = "600px"
     document.querySelector(".main-container").style.height = "600px"
-    onePlayerGame()
+    playGame()
 }
 
 const endGame = () => {
+    debugger
     if (numberOfPlayers === 1) {
         document.querySelector("#page5").style.display = "none"
         document.querySelector("#page6").style.display = "grid"
@@ -484,27 +593,101 @@ const endGame = () => {
         let feedback = document.querySelector("#end-game-text-1p")
         if (playerOneStarCounter === 30) {
             grade.innerText = "A+"
-            feedback.innerText = "Perfect score! You REALLY know your BOD and ELT Members! Please help your fellow Security Officers remember these VIPs by pointing them out when you encounter them on campus."
+            feedback.innerText = `${playerOneStarCounter}! A perfect score! You REALLY know your BOD and ELT Members! Please help your fellow Security Officers remember these VIPs by pointing them out when you encounter them on campus.`
         } else if (playerOneStarCounter <= 29 && playerOneStarCounter >= 27) {
             grade.innerText = "A"
-            feedback.innerText = "Great job! You REALLY know your BOD and ELT Members! Please help your fellow Security Officers remember these VIPs by pointing them out when you encounter them on campus."
+            feedback.innerText = `Great job! You knew ${playerOneStarCounter} out of 30 real and fake ELT and BOD Members! You REALLY know your BOD and ELT Members! Please help your fellow Security Officers remember these VIPs by pointing them out when you encounter them on campus.`
         } else if (playerOneStarCounter <= 26 && playerOneStarCounter >= 24) {
             grade.innerText = "B"
-            feedback.innerText = "Those are some sharp eyes you've got! A decent score, but we really need you to know ALL of the ELT and BOD Members by both name and face. Please take a moment to brush up on some of the people you missed with your fellow Security Officers!"
+            feedback.innerText = `Those are some sharp eyes you've got! ${playerOneStarCounter} out of 30 is a decent score, but we really need you to know ALL of the ELT and BOD Members by both name and face. Please take a moment to brush up on some of the people you missed with your fellow Security Officers!`
         } else if (playerOneStarCounter <= 23 && playerOneStarCounter >= 21) {
             grade.innerText = "C"
-            feedback.innerText = "You know more than 2/3rds of the BOD and ELT, but you really need to make sure you take note of VIPs you missed. Review your ELT and BOD sheet regularly so you remember both their faces and names!"
+            feedback.innerText = `You know ${playerOneStarCounter} out of 30 real and fake BOD and ELT members. That's more than 2/3rds of the BOD and ELT, but you really need to make sure you take note of VIPs you missed. Review your ELT and BOD sheet regularly so you remember both their faces and names!`
         } else if (playerOneStarCounter <= 20 && playerOneStarCounter >= 18) {
             grade.innerText = "D"
-            feedback.innerText = "You do know more than half of the ELT and BOD, but we really need you to know 100%. Don't be afraid to reach out to your fellow Security Officers and Management to help you review - and be sure to take note of this website so you can keep practicing!"
+            feedback.innerText = `You know ${playerOneStarCounter} out of 30 real and fake BOD and ELT members. You may know more than half of the ELT and BOD, but we really need you to know 100%. Don't be afraid to reach out to your fellow Security Officers and Management to help you review - and be sure to take note of this website so you can keep practicing!`
         } else if (playerOneStarCounter <= 17) {
             grade.innerText = "F"
-            feedback.innerText = "You're in serious need of review. As one of Pfizer's Security Officers, we need you to not only spot - but also quickly identify by name - the Pfizer Board Of Directors and Pfizer's Executive Leadership Team. Please seek out your fellow Security Officers and Management, and ask them to help you review these VIPs. Remember: It's your responsibility to know these people, and a core requirement of your daily duties."
+            feedback.innerText = `You know ${playerOneStarCounter} out of 30 real and fake BOD and ELT members. You're in serious need of review! As one of Pfizer's Security Officers, we need you to not only spot - but also quickly identify by name - the Pfizer Board Of Directors and Pfizer's Executive Leadership Team. Please seek out your fellow Security Officers and Management, and ask them to help you review these VIPs. Remember: It's your responsibility to know these people, and a core requirement of your daily duties.`
         }
     } else if (numberOfPlayers === 2) {
-
+        document.querySelector("#page5").style.display = "none"
+        document.querySelector("#page6").style.display = "grid"
+        document.querySelector("#end-game-display-multiplayer").style.display = "grid"
+        let winnerNames = document.querySelector("#winner-id")
+        let winningText = document.querySelector("#end-game-text-multiplayer")
+        if (playerOneStarCounter === playerTwoStarCounter) {
+            winnerNames.innerText = `${playerOneName} and ${playerTwoName}`
+            winningText.innerText = "A tie! Please give a huge round of applause for our two fantastic players for really knowing their ELT and BOD Members!"
+        } else if (playerOneStarCounter > playerTwoStarCounter) {
+            winnerNames.innerText = `${playerOneName}`
+            winningText.innerText = `Please give a huge round of applause for ${playerOneName}! They really know the ELT and BOD Members!`
+        } else {
+            winnerNames.innerText = `${playerTwoName}`
+            winningText.innerText = `Please give a huge round of applause for ${playerTwoName}! They really know the ELT and BOD Members!`
+        }
     } else {
+        document.querySelector("#page5").style.display = "none"
+        document.querySelector("#page6").style.display = "grid"
+        document.querySelector("#end-game-display-multiplayer").style.display = "grid"
+        let winnerNames = document.querySelector("#winner-id")
+        let winningText = document.querySelector("#end-game-text-multiplayer")
+        let scores = [{
+            name: playerOneName,
+            score: playerOneStarCounter
+        }, {
+            name: playerTwoName,
+            score: playerTwoStarCounter
+        }, {
+            name: playerThreeName,
+            score: playerThreeStarCounter
+        }]
 
+        let sortedScores = scores.sort(function(a, b){return a.score - b.score});
+
+        for(let index in sortedScores) {
+            if (sortedScores.score <= 5) {
+                sortedScores.splice(index, 1)
+            }
+            if (sortedScores === []) {
+                winningText.innerText = "Bad news, players - you've all scored too low for anyone to win the game! You'll all need to review the members of the Board of Directors and Executive Leadership Team. It's your responsibility to know these people by both face and name at a moment's notice! Reach out to Management and your fellow Security Officers for help and support in your review!"
+            }
+        }
+
+        if (sortedScores[0].score === sortedScores[1].score && sortedScores[1].score === sortedScores[2].score) {
+            winnerNames.innerText = `${sortedScores[2].name}, ${sortedScores[1].name}, and ${sortedScores[0].name}`
+            winningText.innerText = "A three way tie! Please give a huge round of applause for our three fantastic players who all really know their ELT and BOD Members!"
+        } else if (sortedScores[1].score === sortedScores[2].score) {
+            winnerNames.innerText = `${sortedScores[2].name} and ${sortedScores[1].name}`
+            winningText.innerText = "A tie! Please give a huge round of applause for our two fantastic players for really knowing their ELT and BOD Members!"
+        } else if (sortedScores[0].score === sortedScores[1].score && sortedScores[1].score > sortedScores[2].score) {
+            winnerNames.innerText = `${sortedScores[1].name} and ${sortedScores[0].name}`
+            winningText.innerText = "A tie! Please give a huge round of applause for our two fantastic players for really knowing their ELT and BOD Members!"
+        } else if (sortedScores.length === 3) {
+            winnerNames.innerText = `${sortedScores[2].name}`
+            winningText.innerText = `Please give a huge round of applause for ${sortedScores[2].name}! They really know the ELT and BOD Members!`
+        } else if (sortedScores.length === 2) {
+            winnerNames.innerText = `${sortedScores[1].name}`
+            winningText.innerText = `Please give a huge round of applause for ${sortedScores[1].name}! They really know the ELT and BOD Members!`
+        } else {
+            winnerNames.innerText = `${sortedScores[0].name}`
+            winningText.innerText = `Please give a huge round of applause for ${sortedScores[0].name}! They really know the ELT and BOD Members!`
+        }
+
+
+        // if (playerOneStarCounter === playerTwoStarCounter && playerTwoStarCounter === playerThreeStarCounter) {
+        //     winnerNames.innerText = `${playerOneName}, ${playerTwoName}, and ${playerThreeName}`
+        //     winningText.innerText = "A three way tie! Please give a huge round of applause for our three fantastic players who all really know their ELT and BOD Members!"
+        // } else if (playerOneStarCounter === playerTwoStarCounter) {
+        //     winnerNames.innerText = `${playerOneName} and ${playerTwoName}`
+        //     winningText.innerText = "A tie! Please give a huge round of applause for our two fantastic players for really knowing their ELT and BOD Members!"
+        // } else if (playerTwoStarCounter === playerThreeStarCounter) {
+        //     winnerNames.innerText = `${playerOneName} and ${playerTwoName}`
+        //     winningText.innerText = "A tie! Please give a huge round of applause for our two fantastic players for really knowing their ELT and BOD Members!"
+        // } else if (playerOneStarCounter > playerTwoStarCounter) {
+        //     winnerNames.innerText = `${playerOneName}`
+        //     winningText.innerText = `Please give a huge round of applause for ${playerOneName}! They really know the ELT and BOD Members!`
+        // }
     }
 }
 
