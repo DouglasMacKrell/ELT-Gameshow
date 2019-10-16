@@ -205,7 +205,7 @@ body {
     border: 3px solid gold;
 }
 
-.main-container .the-card:hover {
+.the-card:hover {
     transform: rotateY(180deg);
 }
 
