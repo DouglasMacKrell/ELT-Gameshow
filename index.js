@@ -49,6 +49,8 @@ let playerThreeName = ""
 let usedVip = []
 let correctAnswer = 0
 let vipSelect = {}
+let someRandoMan = ""
+let someRandoWoman = ""
 
 let currentPlayer = "player1"
 
@@ -189,12 +191,9 @@ const randomVip = () => {
     return vip[randomIndex(vip)]
 }
 
-const randomWoman = () => {
-    return women[randomIndex(women)]
-}
-
-const randomMan = () => {
-    return men[randomIndex(men)]
+const randomName = (obj) => {
+    let keys = Object.keys(obj)
+    return obj[keys[keys.length * Math.random() << 0]];
 }
 
 const checkUsedVip = (arr) => {
@@ -203,6 +202,56 @@ const checkUsedVip = (arr) => {
             console.log("gotcha dupe new random select")
             vipSelect = randomVip()
             checkUsedVip(arr)
+        }
+    }
+}
+
+const checkBtnVipMen = (arr) => {
+    if (someRandoMan === vipSelect.name) {
+        console.log("gotcha dupe correct answer")
+        someRandoMan = randomName(men)
+        checkBtnVipMen(arr)
+    }
+    for (let btn of arr) {
+        if (btn === someRandoMan) {
+            console.log("gotcha dupe btn")
+            someRandoMan = randomName(men)
+            checkBtnVipMen(arr)
+        }
+    }
+}
+
+const checkBtnVipWomen = (arr) => {
+    if (someRandoWoman === vipSelect.name) {
+        console.log("gotcha dupe correct answer")
+        someRandoWoman = randomName(women)
+        checkBtnVipWomen(arr)
+    }
+    for (let btn of arr) {
+        if (btn === someRandoWoman) {
+            console.log("gotcha dupe btn")
+            someRandoWoman = randomName(women)
+            checkBtnVipWomen(arr)
+        }
+    }
+}
+
+const checkFilledBtnMen = (arr, element) => {
+    for (let btn of arr) {
+        while (btn === element) {
+            console.log("gotcha dupe btn")
+            element = randomName(men)
+            checkFilledBtnMen(arr, element)
+        }
+    }
+}
+
+const checkFilledBtnWomen = (arr, element) => {
+    for (let btn of arr) {
+        while (btn === element) {
+            console.log("gotcha dupe btn")
+            element = randomName(women)
+            checkFilledBtnMen(arr, element)
         }
     }
 }
@@ -273,18 +322,9 @@ const playGame = () => {
                 correctAnswer = rightAnswer.value
                 rightAnswer.innerText = vipSelect.name
                 for(let button of multChoiceBtns) {
-                    let someRandoMan = randomMan()
+                    someRandoMan = randomName(men)
                     if (!button.innerText) {
-                        while (someRandoMan === vipSelect.name) {
-                            console.log("gotcha dupe correct answer")
-                            someRandoMan = randomMan()
-                        }
-                        for (let btn of filledBtn) {
-                            while (btn === someRandoMan) {
-                                console.log("gotcha dupe btn")
-                                someRandoMan = randomMan()
-                            }
-                        }
+                        checkBtnVipMen(filledBtn)
                         button.innerText = someRandoMan
                         filledBtn.push(someRandoMan)
                     } 
@@ -302,18 +342,9 @@ const playGame = () => {
                 let rightAnswer = multChoiceBtn5
                 correctAnswer = rightAnswer.value
                 for(let button of multChoiceBtns) {
-                    let someRandoMan = randomMan()
+                    someRandoMan = randomName(men)
                     if (!button.innerText) {
-                        while (someRandoMan === vipSelect.name) {
-                            console.log("gotcha dupe correct answer")
-                            someRandoMan = randomMan()
-                        }
-                        for (let btn of filledBtn) {
-                            while (btn === someRandoMan) {
-                                console.log("gotcha dupe btn")
-                                someRandoMan = randomMan()
-                            }
-                        }
+                        checkBtnVipMen(filledBtn)
                         button.innerText = someRandoMan
                         filledBtn.push(someRandoMan)
                     } 
@@ -333,18 +364,9 @@ const playGame = () => {
                 correctAnswer = rightAnswer.value
                 rightAnswer.innerText = vipSelect.name
                 for(let button of multChoiceBtns) {
-                    let someRandoWoman = randomWoman()
+                    someRandoWoman = randomName(women)
                     if (!button.innerText) {
-                        while (someRandoWoman === vipSelect.name) {
-                            console.log("gotcha dupe correct answer")
-                            someRandoWoman = randomWoman()
-                        }
-                        for (let btn of filledBtn) {
-                            while (btn === someRandoWoman) {
-                                console.log("gotcha dupe btn")
-                                someRandoWoman = randomWoman()
-                            }
-                        }
+                        checkBtnVipWomen(filledBtn)
                         button.innerText = someRandoWoman
                         filledBtn.push(someRandoWoman)
                     } 
@@ -362,18 +384,9 @@ const playGame = () => {
                 let rightAnswer = multChoiceBtn5
                 correctAnswer = rightAnswer.value
                 for(let button of multChoiceBtns) {
-                    let someRandoWoman = randomWoman()
+                    someRandoWoman = randomName(women)
                     if (!button.innerText) {
-                        while (someRandoWoman === vipSelect.name) {
-                            console.log("gotcha dupe correct answer")
-                            someRandoWoman = randomWoman()
-                        }
-                        for (let btn of filledBtn) {
-                            while (btn === someRandoWoman) {
-                                console.log("gotcha dupe btn")
-                                someRandoWoman = randomWoman()
-                            }
-                        }
+                        checkBtnVipWomen(filledBtn)
                         button.innerText = someRandoWoman
                         filledBtn.push(someRandoWoman)
                     } 
